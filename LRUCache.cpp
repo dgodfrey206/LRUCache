@@ -128,7 +128,9 @@ void LRUCache::set(int key, int value) {
   }
 }
 
+// returns the value mapped to the key or -1 if not found
 int LRUCache::get(int key) {
+  // mp[key] is NULL only if it has been removed from the cache
   return (mp.find(key) != mp.end()) && mp[key] != NULL
     ? mp[key]->value
     : -1;
