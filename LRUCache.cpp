@@ -162,7 +162,7 @@ void LRUCache<T>::set(Key const& key, Vi&& value) {
    
   // if list is empty (or adding a new node does NOT exceed capacity), append a new node
   if (target == nullptr) {
-    auto obj = make_shared<node<T>>(T(key, value));
+    auto obj = node<T>::create(T(key, value));
     this->cache.push_back(obj);
     this->mp[key] = obj;
     m_size++;
